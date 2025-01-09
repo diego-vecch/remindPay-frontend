@@ -1,24 +1,24 @@
-'use client';
-import { useState } from 'react';
-import { ButtonForm } from './ButtonForm';
+'use client'
+import { useState } from 'react'
+import { ButtonForm } from './ButtonForm'
 import {
   EyeOpenPasswordForm,
   EyeClosePasswordForm
-} from './Icons/EyePasswordForm';
+} from './Icons/EyePasswordForm'
 
 const Login: React.FC = () => {
-  const [view, setview] = useState(false);
-  const typeInput = view ? 'text' : 'password';
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [view, setview] = useState(false)
+  const typeInput = view ? 'text' : 'password'
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [responseLogin, setResponseLogin] = useState({
     status: '',
     message: ''
-  });
+  })
 
   const handleSubmit = (): void => {
     const URL =
-      process.env.NEXT_PUBLIC_URL_LOGIN ?? 'localhost:8000/api/v1/auth/login';
+      process.env.NEXT_PUBLIC_URL_LOGIN ?? 'localhost:8000/api/v1/auth/login'
     void fetch(URL, {
       method: 'POST',
       headers: {
@@ -30,27 +30,26 @@ const Login: React.FC = () => {
       })
     })
       .then(async (res) => {
-        const data = await res.json();
+        const data = await res.json()
         if (!res.ok) {
           setResponseLogin({
             status: data.status,
             message: data.message
-          });
+          })
         }
-        return data;
+        return data
       })
       .then((response) => {
-        sessionStorage.setItem('JWT', response.token);
+        sessionStorage.setItem('JWT', response.token)
         setResponseLogin({
           status: response.status,
           message: response.message
-        });
-        redirect();
-      });
-  };
+        })
+        redirect()
+      })
+  }
 
-  const redirect = (): void =>
-    global.location.replace('http://localhost:3000/');
+  const redirect = (): void => global.location.replace('http://localhost:3000/')
 
   return (
     <div className='h-full flex flex-col pt-20 justify-center items-center w-full'>
@@ -108,8 +107,8 @@ const Login: React.FC = () => {
               <button
                 className='absolute ml-3'
                 onClick={(e) => {
-                  e.preventDefault();
-                  setview(!view);
+                  e.preventDefault()
+                  setview(!view)
                 }}
               >
                 {view && <EyeOpenPasswordForm />}
@@ -119,8 +118,8 @@ const Login: React.FC = () => {
           </div>
           <ButtonForm
             click={(e: { preventDefault: () => void }) => {
-              e.preventDefault();
-              void handleSubmit();
+              e.preventDefault()
+              void handleSubmit()
             }}
             nameButton='Log in'
           />
@@ -135,7 +134,7 @@ const Login: React.FC = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

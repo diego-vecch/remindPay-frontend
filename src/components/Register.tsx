@@ -1,14 +1,14 @@
-'use client';
-import { useState } from 'react';
-import { ButtonForm } from './ButtonForm';
+'use client'
+import { useState } from 'react'
+import { ButtonForm } from './ButtonForm'
 import {
   EyeOpenPasswordForm,
   EyeClosePasswordForm
-} from './Icons/EyePasswordForm';
+} from './Icons/EyePasswordForm'
 
 export function Register(): JSX.Element {
-  const [view, setview] = useState(false);
-  const typeInput = view ? 'text' : 'password';
+  const [view, setview] = useState(false)
+  const typeInput = view ? 'text' : 'password'
   return (
     <div className='h-full flex flex-col pt-20 justify-center items-center w-full'>
       <div className='mb-8 flex flex-col gap-2 justify-center w-96'>
@@ -41,8 +41,8 @@ export function Register(): JSX.Element {
               <button
                 className='absolute ml-3'
                 onClick={(e) => {
-                  e.preventDefault();
-                  setview(!view);
+                  e.preventDefault()
+                  setview(!view)
                 }}
               >
                 {view && <EyeOpenPasswordForm />}
@@ -66,5 +66,5 @@ export function Register(): JSX.Element {
         </form>
       </div>
     </div>
-  );
+  )
 }

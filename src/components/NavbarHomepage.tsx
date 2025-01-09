@@ -1,16 +1,16 @@
-'use client';
-import { useState, useContext, useEffect } from 'react';
-import { NavbarContext } from '@/context/NavbarContext';
-import Link from 'next/link';
-import ButtonMenu from './ButtonMenu';
-import { IconHamburguerMenu, LogoNavbar, IconDarkMode } from './IconsSvg';
+'use client'
+import { useState, useContext, useEffect } from 'react'
+import { NavbarContext } from '@/context/NavbarContext'
+import Link from 'next/link'
+import ButtonMenu from './ButtonMenu'
+import { IconHamburguerMenu, LogoNavbar, IconDarkMode } from './IconsSvg'
 
 export const NavbarHomepage: React.FC = () => {
-  const { position, setPosition } = useContext(NavbarContext);
+  const { position, setPosition } = useContext(NavbarContext)
   useEffect(() => {
-    const params = document.location.pathname;
-    const LinkSelected = 'border-b-2 border-blue-regular';
-    const LinkNoSelected = '';
+    const params = document.location.pathname
+    const LinkSelected = 'border-b-2 border-blue-regular'
+    const LinkNoSelected = ''
 
     if (params === '/') {
       setPosition({
@@ -18,7 +18,7 @@ export const NavbarHomepage: React.FC = () => {
         how: LinkNoSelected,
         about: LinkNoSelected,
         contact: LinkNoSelected
-      });
+      })
     }
     if (params === '/howitwork') {
       setPosition({
@@ -26,7 +26,7 @@ export const NavbarHomepage: React.FC = () => {
         how: LinkSelected,
         about: LinkNoSelected,
         contact: LinkNoSelected
-      });
+      })
     }
     if (params === '/about') {
       setPosition({
@@ -34,7 +34,7 @@ export const NavbarHomepage: React.FC = () => {
         how: LinkNoSelected,
         about: LinkSelected,
         contact: LinkNoSelected
-      });
+      })
     }
     if (params === '/contact') {
       setPosition({
@@ -42,13 +42,13 @@ export const NavbarHomepage: React.FC = () => {
         how: LinkNoSelected,
         about: LinkNoSelected,
         contact: LinkSelected
-      });
+      })
     }
-  }, [setPosition]);
-  const [open, setOpen] = useState(true);
+  }, [setPosition])
+  const [open, setOpen] = useState(true)
   const handleNav = (): void => {
-    setOpen(!open);
-  };
+    setOpen(!open)
+  }
 
   return (
     <nav className='sm:items-center text-end sm:flex-wrap font-primary flex justify-center  w-full max-w-[1100px] absolute top-0 m-auto z-10 right-0 left-0'>
@@ -165,5 +165,5 @@ export const NavbarHomepage: React.FC = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
