@@ -1,7 +1,7 @@
 'use client'
 import { useState, createContext, SetStateAction } from 'react'
 
-type PositionObject = {
+interface PositionObject {
   home: string
   how: string
   about: string
@@ -21,7 +21,11 @@ export const NavbarContext = createContext<{
   setPosition: (): void => {}
 })
 
-export function Routing ({ children }: { children: React.ReactNode }): JSX.Element {
+export function Routing({
+  children
+}: {
+  children: React.ReactNode
+}): JSX.Element {
   const [position, setPosition] = useState({
     home: '',
     how: '',

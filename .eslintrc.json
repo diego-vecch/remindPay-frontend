@@ -4,9 +4,19 @@
   },
   "extends": [
     "./node_modules/ts-standard/eslintrc.json",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
   ],
   "rules": {
-    "@typescript-eslint/consistent-type-definitions": "off"
+    "@typescript-eslint/quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "jsxSingleQuote": true,
+        "semi": false
+      }
+    ]
   }
 }

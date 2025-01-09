@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Remind Pay',
+  // eslint-disable-next-line @typescript-eslint/quotes
   description: "Don't forget to cancel your subscriptions in time"
-
 }
 
-export default function RootLayout ({
+export default function RootLayout({
   children
 }: {
   children: React.ReactNode

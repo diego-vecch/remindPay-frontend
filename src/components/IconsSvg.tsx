@@ -1,8 +1,6 @@
-export function IconHamburguerMenu (): JSX.Element {
+export function IconHamburguerMenu(): JSX.Element {
   return (
-    <button
-      className='flex px-3 py-2 border-2 rounded text-purple-dark border-purple-dark  hover:text-white hover:border-purple-half-dark'
-    >
+    <button className='flex px-3 py-2 border-2 rounded text-purple-dark border-purple-dark  hover:text-white hover:border-purple-half-dark'>
       <svg
         className='fill-current h-3 w-3'
         viewBox='0 0 20 20'
@@ -102,7 +100,7 @@ export const LogoNavbar: React.FC = (props) => (
   </svg>
 )
 
-export function IconDarkMode (): JSX.Element {
+export function IconDarkMode(): JSX.Element {
   return (
     <>
       <div className=' rounded-full vy-sm:w-10 vy-sm:h-10 bg-blue-regular hover:bg-violet-700 flex justify-center items-center'>
